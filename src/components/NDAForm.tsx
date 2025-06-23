@@ -10,7 +10,6 @@ import React, { useState, useRef, useEffect } from 'react';
 import SignatureCanvas from 'react-signature-canvas';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
-import AWS from 'aws-sdk';
 import Image from 'next/image';
 
 const NDAForm = () => { 
@@ -26,14 +25,6 @@ const NDAForm = () => {
   //Use state to control signature of the recipient
   //checks if the required fields are filled out
   const canvasRef = useRef<SignatureCanvas>(null);
-
-  // AWS S3 Configuration for NDA Upload
-  AWS.config.update({
-    accessKeyId: process.env.NEXT_PUBLIC_AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.NEXT_PUBLIC_AWS_SECRET_ACCESS_KEY,
-    region: process.env.NEXT_PUBLIC_AWS_REGION,
-  });
-
   // Function to handle changes and validate letter inputs
   const handleInputChange = (setter: React.Dispatch<React.SetStateAction<string>>) => (e: React.ChangeEvent<HTMLInputElement>) => {
     if (setter == setDate) {
