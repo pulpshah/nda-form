@@ -1,3 +1,10 @@
+// ============================================
+// File Purpose: Renders the NDA form layout.
+// Original Author: Uday Turakhia
+// Last Updated By: Uday Turakhia
+// Last Updated On: 06/23/2025
+// ============================================
+
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
